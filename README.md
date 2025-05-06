@@ -9,6 +9,4 @@
 ## 联系反馈
 使用中有任何问题或建议，欢迎随时戳📩[飞书联系](https://www.feishu.cn/invitation/page/add_contact/?token=093ue1bb-a775-4ec4-bb54-5359370c177d&amp;unique_id=Soq-NlmZE9hy6VG-BzpSnw==)
 告诉我们！期待你的反馈🎉 
-# keep-blog
-
-[keep-blog]https://xy-12306.github.io/keep-blog/
+# https://xy-12306.netlify.app
