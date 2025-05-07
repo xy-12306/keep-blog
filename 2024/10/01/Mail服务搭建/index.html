@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="xy12306">
+    
+    <title>
+        
+            Mail服务搭建 |
+        
+        xy12306
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/font/css/fontawesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/font/css/regular.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/font/css/solid.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/font/css/brands.min.css">
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"xy12306","author":"xy12306","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories","links":"/links","about":"/about","我的项目":"https://xy12306.netlify.app","掘金主页":"https://juejin.cn/user/2232425500384467/columns"},"first_screen":{"enable":true,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"“ 黄色的森林分出两条路，我选择人迹更少的那一条，从此决定我一生的道路。”","hitokoto":false},"social_contact":{"enable":true,"links":{"github":"https://github.com/xy-12306","weixin":"img | /images/weixin.png","qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"1745818515@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":true},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":true,"share":true,"reward":{"enable":true,"img_link":"https://i.postimg.cc/GmH830xh/pay.png","text":"请作者杯咖啡"}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"obsidian"},"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":true,"site_uv":true,"site_pv":true,"page_pv":true}},"local_search":{"enable":true,"preload":true},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":true},"cdn":{"enable":true,"provider":"jsdelivr"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"}
+    KEEP.language_code_block = {"copy":"复制代码","copied":"已复制","fold":"折叠代码块","folded":"已折叠"}
+    KEEP.language_copy_copyright = {"copy":"复制版权信息","copied":"已复制","title":"原文标题","author":"原文作者","link":"原文链接"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               xy12306
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                首页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                归档
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                标签
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                分类
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/links">
+                                
+                                友链
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/about">
+                                
+                                关于
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://xy12306.netlify.app">
+                                
+                                我的项目
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" target="_blank" rel="noopener" href="https://juejin.cn/user/2232425500384467/columns">
+                                
+                                掘金主页
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                            首页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                            归档
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                            标签
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                            分类
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/links">
+                            
+                            友链
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/about">
+                            
+                            关于
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://xy12306.netlify.app">
+                            
+                            我的项目
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" target="_blank" rel="noopener" href="https://juejin.cn/user/2232425500384467/columns">
+                            
+                            掘金主页
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Mail服务搭建
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">xy12306</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2024-10-01 00:00:00</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Mon May 05 2025 14:28:21 GMT+0000">2025-05-05 14:28:21</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/Linux/">Linux</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Linux/">Linux</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Mail/">Mail</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+            <span class="meta-info-item post-wordcount">
+                <i class="icon fas fa-file-word"></i>&nbsp;<span>1.2k 字</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-min2read">
+                <i class="icon fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+            </span>
+        
+        
+            <span class="meta-info-item post-pv">
+                <i class="icon fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+            </span>
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h3 id="一、关闭防火墙"><a href="#一、关闭防火墙" class="headerlink" title="一、关闭防火墙"></a>一、关闭防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 关闭防火墙</span></span><br><span class="line">systemctl stop firewalld    </span><br><span class="line"><span class="comment"># 禁止防火墙开机自启动</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld </span><br><span class="line"><span class="comment"># 查看防火墙状态</span></span><br><span class="line">systemctl status firewalld  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>将未注释的SELINUX行的值改为disabled<br><code>vim /etc/sysconfig/selinux</code><br><code>SELINUX=disabled</code></p>
+</blockquote>
+<h3 id="二、搭建DNS环境"><a href="#二、搭建DNS环境" class="headerlink" title="二、搭建DNS环境"></a>二、搭建DNS环境</h3><h4 id="1-安装DNS服务器"><a href="#1-安装DNS服务器" class="headerlink" title="1. 安装DNS服务器"></a>1. 安装DNS服务器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装DNS服务器</span></span><br><span class="line">yum install -y <span class="built_in">bind</span></span><br></pre></td></tr></table></figure>
+
+<p><code>vim /etc/hostname </code></p>
+<blockquote>
+<p>将主机名更改为邮件服务器域名 mail.test.com</p>
+</blockquote>
+<p><code>vim /etc/named.conf  </code></p>
+<blockquote>
+<p>修改这两行的内容:</p>
+<p>listen-on port 53 { any; };<br>allow-query { any; };</p>
+</blockquote>
+<h4 id="2-修改子配置文件"><a href="#2-修改子配置文件" class="headerlink" title="2. 修改子配置文件"></a>2. 修改子配置文件</h4><p><code>vim /etc/named.rfc1912.zones</code></p>
+<p>在结尾处添加一个正向和一个反向解析区域  <code>（IP改为自己的IP地址）</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">zone <span class="string">&quot;test.com&quot;</span> IN &#123;</span><br><span class="line">        <span class="built_in">type</span> master;</span><br><span class="line">        file <span class="string">&quot;test.com.zone&quot;</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone <span class="string">&quot;1.168.192.in-addr.arpa&quot;</span> IN &#123;</span><br><span class="line">        <span class="built_in">type</span> master;</span><br><span class="line">        file <span class="string">&quot;test.com.local&quot;</span>;</span><br><span class="line">&#125;;  </span><br></pre></td></tr></table></figure>
+
+<h4 id="3-进入DNS服务器区域配置文件目录"><a href="#3-进入DNS服务器区域配置文件目录" class="headerlink" title="3. 进入DNS服务器区域配置文件目录"></a>3. 进入DNS服务器区域配置文件目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/named/ </span><br><span class="line"><span class="comment"># 复制模板区域配置文件为指定区域配置文件。保留源文件权限，确定属组为named</span></span><br><span class="line"><span class="built_in">cp</span> -p named.localhost test.com.zone</span><br><span class="line"><span class="built_in">cp</span> -p named.localhost test.com.local </span><br></pre></td></tr></table></figure>
+
+<h4 id="4-编辑正反向区域配置文件-在cd-var-named-目录中-IP改为自己的IP地址）"><a href="#4-编辑正反向区域配置文件-在cd-var-named-目录中-IP改为自己的IP地址）" class="headerlink" title="4. 编辑正反向区域配置文件(在cd &#x2F;var&#x2F;named&#x2F;目录中)  (IP改为自己的IP地址）"></a>4. 编辑正反向区域配置文件(在cd &#x2F;var&#x2F;named&#x2F;目录中) <code> (IP改为自己的IP地址）</code></h4><p><code>vim test.com.zone </code></p>
+<p>&lt;img<br>   src&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/5b710eb1f7824747b8225364dd83ab35~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgeHkxMjMwNg==:q75.awebp?rk3s=f64ab15b&x-expires=1736153754&x-signature=M7PgEEGD3u51nwqNMHxtCeQeD88=" >https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/5b710eb1f7824747b8225364dd83ab35~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgeHkxMjMwNg==:q75.awebp?rk3s=f64ab15b&amp;x-expires=1736153754&amp;x-signature=M7PgEEGD3u51nwqNMHxtCeQeD88%3D<i class="fas fa-external-link-alt"></i></a>“<br>  alt&#x3D;”示例图片”<br>  style&#x3D;”transform: scale(1.0);”<br>  loading&#x3D;”lazy”</p>
+<blockquote>
+</blockquote>
+<p><code>vim test.com.local</code></p>
+<p>&lt;img<br>   src&#x3D;”<a class="link"   target="_blank" rel="noopener" href="https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/1b654e3241aa421e9b9b794be1c14372~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgeHkxMjMwNg==:q75.awebp?rk3s=f64ab15b&x-expires=1736153754&x-signature=ZM2Ksb+NJx1dwti0kC6CPPliVeE=" >https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/1b654e3241aa421e9b9b794be1c14372~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgeHkxMjMwNg==:q75.awebp?rk3s=f64ab15b&amp;x-expires=1736153754&amp;x-signature=ZM2Ksb%2BNJx1dwti0kC6CPPliVeE%3D<i class="fas fa-external-link-alt"></i></a>“<br>  alt&#x3D;”示例图片”<br>  style&#x3D;”transform: scale(1.0);”<br>  loading&#x3D;”lazy”</p>
+<blockquote>
+</blockquote>
+<h4 id="5-启动DNS域名解析服务器"><a href="#5-启动DNS域名解析服务器" class="headerlink" title="5. 启动DNS域名解析服务器"></a>5. 启动DNS域名解析服务器</h4><ul>
+<li>给本机的DNS指向自己的dns服务器<br><code>vim /etc/resolv.conf</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 192.168.1.3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动后测试</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动</span></span><br><span class="line">systemctl start named</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装nslookup命令测试dns能否解析成功</span></span><br><span class="line">yum install -y bind-utils</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>解析服务器地址测试</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@mail named]`nslookup mail.test.com` <span class="comment"># 正向解析</span></span><br><span class="line">Server:192.168.1.3</span><br><span class="line">Address:192.168.1.3#53</span><br><span class="line">Name:mail.test.com</span><br><span class="line">Address: 192.168.1.3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@mail named] `nslookup 192.168.1.3`# 反向解析</span><br><span class="line">3.1.168.192.in-addr.arpa            name = mail.test.com. <span class="comment"># 成功</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="三、安装postfix服务进行收发件测试"><a href="#三、安装postfix服务进行收发件测试" class="headerlink" title="三、安装postfix服务进行收发件测试"></a>三、安装postfix服务进行收发件测试</h3><blockquote>
+<p>一般Centos7是默认自动安装postfix服务器的。检查系统是否已经安装了postfix服务器，使用以下命令</p>
+<p>[root@mail named] rpm -q postfix</p>
+<p>postfix-2.10.1-6.el7.x86_64</p>
+<p>检查postfix是否支持cyrus dovecot功能.</p>
+<p>[root@mail named]postconf -a</p>
+<p>cyrus</p>
+<p>dovecot</p>
+</blockquote>
+<h4 id="1-postfix配置"><a href="#1-postfix配置" class="headerlink" title="1. postfix配置"></a>1. postfix配置</h4><p><code>vim /etc/postfix/main.cf</code></p>
+<ul>
+<li>在配置文件中修改以下参数</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">myhostname = mail.test.com //本机主机名</span><br><span class="line">mydomain = test.com        //服务器域名</span><br><span class="line">myorigin = <span class="variable">$mydomain</span>       //初始域名</span><br><span class="line">inet_interfaces = all      //监听接口</span><br><span class="line">inet_protocols = ipv4      //监听网络版本，可以不改</span><br><span class="line">mydestination = <span class="variable">$myhostname</span>, localhost.<span class="variable">$mydomain</span>, localhost, <span class="variable">$mydomain</span></span><br><span class="line">home_mailbox = Maildir/    //邮件目录，在用户家目录下       </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动后设置用户和密码   <code>请记住设置的密码</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#检查配置文件是否有语法错误</span></span><br><span class="line">[root@mail named] postfix check </span><br><span class="line"><span class="comment"># 启动postfix服务器</span></span><br><span class="line">[root@mail named] systemctl start postfix</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加邮件账号组</span></span><br><span class="line">groupadd mailusers </span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置用户jack和tom                        </span></span><br><span class="line">useradd -g mailusers -s /sbin/nologin jack </span><br><span class="line">passwd jack</span><br><span class="line">useradd -g mailusers -s /sbin/nologin tom</span><br><span class="line">passwd tom                                </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-邮件服务器发件测试"><a href="#2-邮件服务器发件测试" class="headerlink" title="2. 邮件服务器发件测试"></a>2. 邮件服务器发件测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装远程登录插件，用于登录25端口测试</span></span><br><span class="line">yum install -y telnet       </span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启postfix服务</span></span><br><span class="line">systemctl restart postfix</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>远程登录25端口，如报错连接不上，重启postfix</p>
+<p>[root@mail ~]  <code>telnet mail.test.com 25</code></p>
+<p>Trying 192.168.1.3…</p>
+<p>Connected to mail.test.com.</p>
+<p>Escape character is ‘^]’.</p>
+<p>220 mail.test.com ESMTP Postfix</p>
+<p><code>mail from:&lt;root@test.com&gt;</code></p>
+<p>250 2.1.0 Ok</p>
+<p><code>rcpt to:jack</code></p>
+<p>250 2.1.5 Ok</p>
+<p><code>data</code></p>
+<p>354 End data with <CR><LF>.<CR><LF></p>
+<p><code>Hello, this is a test mail. </code></p>
+<p><code>.</code></p>
+<p>250 2.0.0 Ok: queued as 6B1E6801BBC</p>
+<p><code>quit</code></p>
+<p>221 2.0.0 Bye</p>
+<p>Connection closed by foreign host.</p>
+<p>[root@mail ~] <code>tail /var/log/maillog|grep sent </code>  # 查看发送状态</p>
+<p>Dec 10 11:23:31 mail postfix&#x2F;local[7136]: 6B1E6801BBC: to&#x3D;<a class="link"   href="mailto:&#106;&#97;&#99;&#x6b;&#64;&#x74;&#x65;&#115;&#x74;&#x2e;&#99;&#x6f;&#x6d;" >&#106;&#97;&#99;&#x6b;&#64;&#x74;&#x65;&#115;&#x74;&#x2e;&#99;&#x6f;&#x6d;<i class="fas fa-external-link-alt"></i></a>, orig_to&#x3D;<jack>, relay&#x3D;local, delay&#x3D;33, delays&#x3D;33&#x2F;0.01&#x2F;0&#x2F;0, dsn&#x3D;2.0.0, status&#x3D;sent (delivered to maildir)</p>
+</blockquote>
+<h4 id="3-邮件服务器收件测试"><a href="#3-邮件服务器收件测试" class="headerlink" title="3. 邮件服务器收件测试"></a>3. 邮件服务器收件测试</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在Mail服务器上安装配置Dovecot以接收邮件</span></span><br><span class="line">yum install -y dovecot   </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改这三个配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/dovecot/dovecot.conf </span><br><span class="line">protocols = imap pop3 lmtp</span><br><span class="line">listen = *, ::</span><br><span class="line">     </span><br><span class="line">vim /etc/dovecot/conf.d/10-auth.conf</span><br><span class="line">disable_plaintext_auth = no </span><br><span class="line"> </span><br><span class="line">vim /etc/dovecot/conf.d/10-mail.conf</span><br><span class="line">mail_location = maildir:~/Maildir </span><br><span class="line">      </span><br><span class="line"><span class="comment"># 重启服务   </span></span><br><span class="line">systemctl restart dovecot</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">[root@mail ~]` telnet mail.test.com 110`</span><br><span class="line">Trying 192.168.1.3...</span><br><span class="line">Connected to mail.test.com.</span><br><span class="line">Escape character is <span class="string">&#x27;^]&#x27;</span>.</span><br><span class="line">+OK Dovecot ready.</span><br><span class="line">` user jack`</span><br><span class="line">+OK</span><br><span class="line">`pass admin`                  <span class="comment"># 这里格式为`pass+密码`,我前面设置的密码是admin，改为自己的密码。</span></span><br><span class="line">+OK Logged <span class="keyword">in</span>.</span><br><span class="line">`list`</span><br><span class="line">+OK 1 messages:</span><br><span class="line">1 404</span><br><span class="line">.</span><br><span class="line">`  retr 1    `(输入邮件编号查看邮件，需要自行输入）</span><br><span class="line">+OK 404 octets</span><br><span class="line">Return-Path: &lt;root@test.com&gt;</span><br><span class="line">X-Original-To: jack</span><br><span class="line">Delivered-To: &lt;jack@test.com&gt;</span><br><span class="line">Received: from mail.test.com (mail.test.com [192.168.1.3])</span><br><span class="line">by mail.test.com (Postfix) with SMTP <span class="built_in">id</span> 6B1E6801BBC</span><br><span class="line"><span class="keyword">for</span> &lt;jack&gt;; Tue, 10 Dec 2024 11:22:58 +0800 (CST)</span><br><span class="line">Message-Id: &lt;20241210032311.6B1E6801BBC@mail.test.com&gt;</span><br><span class="line">Date: Tue, 10 Dec 2024 11:22:58 +0800 (CST)</span><br><span class="line">From: &lt;root@test.com&gt;</span><br><span class="line">Hello, this is a <span class="built_in">test</span> mail.</span><br><span class="line">.</span><br><span class="line">`quit `</span><br><span class="line">+OK Logging out.</span><br><span class="line">Connection closed by foreign host.</span><br></pre></td></tr></table></figure>
+
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/7448512834663153675" >FTP服务搭建<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/7448239980222873636" >NFS服务搭建 <i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="https://juejin.cn/post/7448189535916294198" >samba服务搭建<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+
+                    
+                </div>
+
+                
+                        
+<div class="post-copyright-info-container border-box">
+    <div class="copyright-info-content border-box">
+        <div class="copyright-info-top border-box">
+            <div class="copyright-post-title border-box text-ellipsis">
+                Mail服务搭建
+            </div>
+
+            <div class="copyright-post-link border-box text-ellipsis">
+                2024/10/01/Mail服务搭建/
+            </div>
+        </div>
+
+        <div class="copyright-info-bottom border-box">
+            <div class="copyright-post-author bottom-item">
+                <div class="type">
+                    作者
+                </div>
+                <div class="content">xy12306</div>
+            </div>
+
+            <div class="post-time bottom-item">
+                <div class="type">
+                    发布于
+                </div>
+                <div class="content">2024-10-01 00:00</div>
+            </div>
+
+
+            <div class="post-license bottom-item">
+                <div class="type">
+                    许可
+                </div>
+                <div class="content tooltip" data-tooltip-content="CC BY-NC-SA 4.0">
+                    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank">
+                        
+                            <i class="fa-brands fa-creative-commons"></i>
+                            <i class="fa-brands fa-creative-commons-by"></i>
+                            <i class="fa-brands fa-creative-commons-nc"></i>
+                            <i class="fa-brands fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <i class="copyright-bg fa-solid fa-copyright"></i>
+    </div>
+    <div class="copy-copyright-info flex-center tooltip" data-tooltip-content="复制版权信息" data-tooltip-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Linux/">Linux</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Mail/">Mail</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                            <div class="post-share-container border-box">
+    <ul class="share-list-wrap border-box">
+        <li class="qq share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到 QQ"
+        >
+            <i class="fa-brands fa-qq"></i>
+        </li>
+        <li class="wechat share-item border-box flex-center tooltip tooltip-img"
+            data-tooltip-content="分享到微信"
+            data-tooltip-img-tip="微信扫一扫"
+            data-tooltip-img-style="background-color: #fff; top: -10px; padding: 0.6rem 0.6rem 0.1rem 0.6rem;"
+        >
+            <i class="fa-brands fa-weixin"></i>
+        </li>
+        <li class="weibo share-item border-box flex-center tooltip"
+            data-tooltip-content="分享到微博"
+        >
+            <i class="fa-brands fa-weibo"></i>
+        </li>
+    </ul>
+</div>
+
+                        
+                    </div>
+                </div>
+
+                
+                    
+
+<div class="reward-author-container border-box flex-center">
+    <div class="reward-btn border-box flex-center tooltip tooltip-img"
+            data-tooltip-img-url="https://i.postimg.cc/GmH830xh/pay.png"
+            data-tooltip-img-trigger="click"
+            data-tooltip-img-style="top: -6px;"
+    >
+        <i class="fa-solid fa-gift"></i>&nbsp;请作者杯咖啡
+    </div>
+</div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2024/10/25/samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/"
+                                   title="samba服务搭建"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">samba服务搭建</span>
+                                        <span class="post-nav-item">上一篇</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2023/01/01/Linux%E7%AC%94%E8%AE%B0/"
+                                   title="Linux笔记"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Linux笔记</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc right-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">一、关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BADNS%E7%8E%AF%E5%A2%83"><span class="nav-text">二、搭建DNS环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">1. 安装DNS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9%E5%AD%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">2. 修改子配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BF%9B%E5%85%A5DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%BA%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-text">3. 进入DNS服务器区域配置文件目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%BC%96%E8%BE%91%E6%AD%A3%E5%8F%8D%E5%90%91%E5%8C%BA%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E5%9C%A8cd-var-named-%E7%9B%AE%E5%BD%95%E4%B8%AD-IP%E6%94%B9%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84IP%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="nav-text">4. 编辑正反向区域配置文件(在cd &#x2F;var&#x2F;named&#x2F;目录中)  (IP改为自己的IP地址）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%90%AF%E5%8A%A8DNS%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">5. 启动DNS域名解析服务器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85postfix%E6%9C%8D%E5%8A%A1%E8%BF%9B%E8%A1%8C%E6%94%B6%E5%8F%91%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">三、安装postfix服务进行收发件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-postfix%E9%85%8D%E7%BD%AE"><span class="nav-text">1. postfix配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">2. 邮件服务器发件测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%94%B6%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">3. 邮件服务器收件测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E7%AB%A0"><span class="nav-text">相关文章</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">xy12306</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        由&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;驱动&nbsp;&&nbsp;主题&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+        <div class="count-info info-item">
+            
+
+            
+                <span class="count-item border-box uv">
+                    <span class="item-type border-box">访客数</span>
+                    <span class="item-value border-box uv" id="busuanzi_value_site_uv"></span>
+                </span>
+            
+
+            
+                <span class="count-item border-box pv">
+                    <span class="item-type border-box">访问量</span>
+                    <span class="item-value border-box pv" id="busuanzi_value_site_pv"></span>
+                </span>
+            
+        </div>
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-text">一、关闭防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BADNS%E7%8E%AF%E5%A2%83"><span class="nav-text">二、搭建DNS环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85DNS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">1. 安装DNS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9%E5%AD%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">2. 修改子配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BF%9B%E5%85%A5DNS%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8C%BA%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95"><span class="nav-text">3. 进入DNS服务器区域配置文件目录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%BC%96%E8%BE%91%E6%AD%A3%E5%8F%8D%E5%90%91%E5%8C%BA%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-%E5%9C%A8cd-var-named-%E7%9B%AE%E5%BD%95%E4%B8%AD-IP%E6%94%B9%E4%B8%BA%E8%87%AA%E5%B7%B1%E7%9A%84IP%E5%9C%B0%E5%9D%80%EF%BC%89"><span class="nav-text">4. 编辑正反向区域配置文件(在cd &#x2F;var&#x2F;named&#x2F;目录中)  (IP改为自己的IP地址）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%90%AF%E5%8A%A8DNS%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-text">5. 启动DNS域名解析服务器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85postfix%E6%9C%8D%E5%8A%A1%E8%BF%9B%E8%A1%8C%E6%94%B6%E5%8F%91%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">三、安装postfix服务进行收发件测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-postfix%E9%85%8D%E7%BD%AE"><span class="nav-text">1. postfix配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">2. 邮件服务器发件测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%94%B6%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="nav-text">3. 邮件服务器收件测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E6%96%87%E7%AB%A0"><span class="nav-text">相关文章</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/toggle-theme.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/code-block.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/libs/anime.min.js"></script>
+
+<!-- local search -->
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/local-search.js"></script>
+
+
+<!-- lazyload -->
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/lazyload.js"></script>
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/post/post-helper.js"></script>
+
+        <!-- toc -->
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/post/toc.js"></script>
+        
+
+        <!-- copyright-info -->
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/post/copyright-info.js"></script>
+        
+
+        <!-- share -->
+        
+            <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/post/share.js"></script>
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@4.2.5/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
